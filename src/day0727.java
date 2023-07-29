@@ -3,12 +3,23 @@ public class day0727 {
 
 	public static String main(String[] args) {
 		// TODO Auto-generated method stub
-		 String answer = "";
+		 
 		 String[] musicinfos = {"12:00,12:14,HELLO,CDEFGAB","13:00,13:05,WORLD,ABCDEF"};
 		 String m = "ABCDEFG";
+		 String answer = "";
 	        int title = musicinfos.length;
-	        HashMap<String,Integer> Time = new HashMap<String, Integer>();
-	        HashMap<String,String> Melody = new HashMap<String, String>();
+	        ArrayList<Integer> playTime = new ArrayList<Integer>();
+	        LinkedHashMap<String,Integer> Time = new LinkedHashMap<String, Integer>();
+	        LinkedHashMap<String,String> Melody = new LinkedHashMap<String, String>();
+	        //네오가 기억한 멜로디중에서 #붙은 애들은 소문자로 바꿔줌
+	        for(int i=0; i<m.length()-1;i++){
+	            StringBuilder sb = new StringBuilder(m);
+	            if(m.charAt(i+1)=='#'){
+	                sb.setCharAt(i,Character.toLowerCase(m.charAt(i)));
+	                m = sb.toString();
+	            }
+	        }
+	        System.out.println(m);
 	        //해쉬에 (제목, 시간) (제목, 멜로디) 저장
 	        for(int i=0; i<title;i++){
 	            String start = musicinfos[i].split(",")[0];//시작 시간:분
@@ -21,6 +32,14 @@ public class day0727 {
 	            int minute = (finishminute - startminute)+hour;//재생시간
 	            int play = musicinfos[i].split(",")[3].length();//맬로디 몇개인지
 	            String remelody = musicinfos[i].split(",")[3];//멜로디
+	            //멜로디중에서 #붙어있는 애들은 소문자로 바꿔줌
+	        for(int j=0; j<remelody.length()-1;j++){
+	            StringBuilder sb = new StringBuilder(remelody);
+	            if(remelody.charAt(j+1)=='#'){
+	                sb.setCharAt(j,Character.toLowerCase(remelody.charAt(j)));
+	                remelody = sb.toString();
+	            }
+	        }
 	            //플레이시간보다 멜로디 갯수 작으면 멜로디 갯수랑 플레이시간 같게 맞춰줌
 	            if(play<=minute){
 	              remelody =  remelody.repeat(minute/play) + remelody.substring(0,minute%play);
@@ -45,7 +64,9 @@ public class day0727 {
 	                answer = "None";
 	            }
 	            }
-	            
+	          
+	        
+	        
 	        return answer;
 	}
 
