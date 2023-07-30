@@ -66,7 +66,6 @@ public class day0727 {
 	            }
 	            }
 	            
-	        
 	        return answer;
 	}
 
