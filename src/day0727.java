@@ -6,11 +6,12 @@ public class day0727 {
 		 
 		 String[] musicinfos = {"12:00,12:14,HELLO,CDEFGAB","13:00,13:05,WORLD,ABCDEF"};
 		 String m = "ABCDEFG";
-		 String answer = "";
+		 String answer = "(None)";
 	        int title = musicinfos.length;
-	        ArrayList<Integer> playTime = new ArrayList<Integer>();
+	        
 	        LinkedHashMap<String,Integer> Time = new LinkedHashMap<String, Integer>();
 	        LinkedHashMap<String,String> Melody = new LinkedHashMap<String, String>();
+	       
 	        //네오가 기억한 멜로디중에서 #붙은 애들은 소문자로 바꿔줌
 	        for(int i=0; i<m.length()-1;i++){
 	            StringBuilder sb = new StringBuilder(m);
@@ -54,18 +55,17 @@ public class day0727 {
 	        for (String key : keySet) {
 	            System.out.println(key + " : " + Melody.get(key));
 	        }
+	            int maxtime = 0;
 	            //멜로디 비교
 	            for(String key : Melody.keySet()){
-	                System.out.println(Melody.get(key).indexOf(m));
 	            if(Melody.get(key).indexOf(m)!=-1){
-	                return key;
-	               
-	            }else{
-	                answer = "None";
+	               if(Time.get(key)>maxtime)
+	                   maxtime = Time.get(key);
+	                   answer = key;
+	                   
 	            }
 	            }
-	          
-	        
+	            
 	        
 	        return answer;
 	}
