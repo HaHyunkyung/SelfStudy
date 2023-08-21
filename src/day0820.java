@@ -20,7 +20,8 @@ public class day0820 {
 		 for(int i=0; i<queries.length; i++) {
 			 int[][] circle = new int[(queries[i][2]-queries[i][0])+1][(queries[i][3]-queries[i][1])+1];
 			 for(int j=0; j<circle.length; j++) {
-				 for(int k=0; k<circle[j].length; k++) { 
+				 for(int k=0; k<circle[j].length; k++) {
+					 
 					 circle[j][k] = 1;
 					 System.out.print(circle[j][k]);
 				 }
