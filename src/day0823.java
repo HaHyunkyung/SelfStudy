@@ -12,7 +12,6 @@ public class day0823 {
 		int start = 1;
 		int fin = 10;
 		mathmatic(start, fin);
-		
 	}
 
 }
