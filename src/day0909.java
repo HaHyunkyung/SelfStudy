@@ -21,7 +21,9 @@ public class day0909 {
 			answer[idx++] = list.remove((int)(k/f));
 			k%=f;
 		}
-		System.out.println(answer);
+		for(int i=0; i<answer.length;i++) {
+		System.out.print(answer[i]);
+		}
 	}
 
 }
