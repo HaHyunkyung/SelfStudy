@@ -11,6 +11,7 @@ public class day0912_1 {
 		PrLow.add(i);
 		PrHigh.add(i);
 		}
+		//첫번째 값 제거 비어있다면 예외 발생
 		PrLow.remove();
 		System.out.println(PrLow.peek());
 		System.out.println(PrHigh.peek());
