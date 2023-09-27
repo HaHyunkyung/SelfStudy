@@ -17,7 +17,15 @@ public class day0927 {
 			day[i] = Integer.parseInt(schedule.split(" ")[0]);
 			pay[i] = Integer.parseInt(schedule.split(" ")[1]);
 		}
+		int[] dp = new int[num+1];
 		
+		for(int i=0; i<num; i++) {
+			if(i+day[i]<=num) {
+				dp[i+day[i]] = Math.max(dp[i+day[i]], dp[i]+pay[i]);
+			}
+			dp[i+1] = Math.max(dp[i+1], dp[i]);
+		}
+		System.out.println(dp[num]);
 	}
 
 }
