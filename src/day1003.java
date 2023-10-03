@@ -8,11 +8,25 @@ public class day1003 {
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int[] xy = new int[6];
+	
 		StringTokenizer st = new StringTokenizer(br.readLine()," ");
-		for(int i=0; i<6; i++) {
-			xy[i] = Integer.parseInt(st.nextToken());
-			System.out.println(xy[i]);
+		int a = Integer.parseInt(st.nextToken()); 
+		int b = Integer.parseInt(st.nextToken()); 
+		int c = Integer.parseInt(st.nextToken()); 
+		
+		int d = Integer.parseInt(st.nextToken()); 
+		int e = Integer.parseInt(st.nextToken()); 
+		int f = Integer.parseInt(st.nextToken()); 
+		
+		for (int i = -999; i <= 999; i++) {
+			for (int j = -999; j <= 999; j++) {
+				if(a*i + b*j ==c) {
+					if(d*i + e*j == f) {
+						System.out.println(i + " " + j);
+						break;
+					}
+				}
+			}
 		}
 	}
 
