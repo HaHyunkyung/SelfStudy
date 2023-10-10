@@ -25,7 +25,7 @@ public class day1010 {
 			int rest = people[i]-B;
 			count++;
 			if(rest<=0) {
-				break;
+				continue;
 			}else {
 				if(rest % C==0)
 					count = count + (rest/C);
