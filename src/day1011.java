@@ -97,7 +97,7 @@ public class day1011 {
 				dice[2][1] = dice[1][1];
 				dice[1][1] = dice[0][1];
 				dice[0][1] = temp;
-				//y++;
+				y++;
 					if(xy[x][y]==0) {
 						xy[x][y] = dice[3][1];
 					}
